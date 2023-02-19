@@ -1,7 +1,7 @@
 mod handler;
 mod logger;
-mod service;
 mod repository;
+mod service;
 use actix_web::{App, HttpServer};
 
 #[actix_web::main]

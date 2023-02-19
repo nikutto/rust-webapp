@@ -1,15 +1,11 @@
+use crate::repository::hello_repository;
+
 pub async fn get_hello_msg() -> String {
     "Hello world!".to_string()
 }
 
-pub async fn test_hello_repository() {
-    let result = crate::repository::test_hello_repository().await;
-    match result {
-        Ok(_) => {}
-        Err(e) => {
-            log::error!("{:?}", e);
-        }
-    }
+pub async fn get_hello_msg2() -> Result<String, sqlx::Error> {
+    hello_repository::get_hello_message().await
 }
 
 pub async fn gen_info_log() {

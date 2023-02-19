@@ -1,0 +1,10 @@
+on: push
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: rust:alpine3.17
+    steps:
+      - name: build
+        run: cargo build
+        

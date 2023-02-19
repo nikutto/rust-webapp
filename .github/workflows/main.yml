@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     container: rust:alpine3.17
     steps:
-      - name: build
-        run: cargo build
-        
+      - name: Check file structure
+        run: |
+          ls
+          pwd

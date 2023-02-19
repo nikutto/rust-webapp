@@ -1,3 +1,5 @@
+use crate::service::hello_service;
+
 use actix_web::{Responder, HttpResponse, get};
 use serde::Serialize;
 
@@ -8,7 +10,8 @@ struct SimpleMessage {
 
 #[get("/api/v1/hello")]
 async fn hello() -> impl Responder {
+    let msg = hello_service::get_hello_msg();
     HttpResponse::Ok().json(
-        SimpleMessage { message: "hello world".to_string() }
+        SimpleMessage { message: msg }
     )
 }

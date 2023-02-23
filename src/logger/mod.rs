@@ -1,4 +1,4 @@
-pub fn init_logger() {
+pub fn init_logger() -> std::io::Result<()> {
     fern::Dispatch::new()
         .level(log::LevelFilter::Info)
         .format(|out, message, record| {
@@ -11,6 +11,8 @@ pub fn init_logger() {
             ))
         })
         .chain(std::io::stdout())
+        .chain(fern::log_file("./logs/output.log")?)
         .apply()
         .unwrap();
+    Ok(())
 }

@@ -11,3 +11,11 @@ services:
       TZ: 'Asia/Tokyo'
     ports:
     - 3306:3306
+
+  fluentd:
+    image: fluent/fluentd:v1.15-debian-1
+    environment:
+      - 'FLUENTD_CONF=fluentd.conf'
+    volumes:
+      - ./logs:/fluentd/log
+      - ./resources/fluentd/etc:/fluentd/etc

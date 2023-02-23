@@ -3,8 +3,8 @@ pub fn init_logger() -> std::io::Result<()> {
         .level(log::LevelFilter::Info)
         .format(|out, message, record| {
             out.finish(format_args!(
-                "{}[{}][{}] {}",
-                chrono::Local::now().format("[%H:%M:%S]"),
+                "[{}][{}][{}] {}",
+                chrono::Local::now().format("%+"),
                 record.level(),
                 record.target(),
                 message

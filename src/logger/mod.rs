@@ -7,7 +7,7 @@ pub fn init_logger() -> std::io::Result<()> {
                 chrono::Local::now().format("%+"),
                 record.level(),
                 record.target(),
-                message
+                message.to_string().replace("\n", "\\n"),
             ))
         })
         .chain(std::io::stdout())

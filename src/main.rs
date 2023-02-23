@@ -10,7 +10,7 @@ use actix_web::{App, HttpServer, web::ServiceConfig};
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    logger::init_logger();
+    logger::init_logger()?;
     let registry = Arc::new(registry::Registry::new().await);
     HttpServer::new(move || {
         App::new()

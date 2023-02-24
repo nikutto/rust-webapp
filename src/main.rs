@@ -16,7 +16,7 @@ async fn main() -> std::io::Result<()> {
     let mut labels = HashMap::new();
     labels.insert("service".to_string(), "app".to_string());
     let prometheus = PrometheusMetricsBuilder::new("api")
-        .endpoint("/internal/metrics")
+        .endpoint("/metrics")
         .const_labels(labels)
         .build()
         .unwrap();

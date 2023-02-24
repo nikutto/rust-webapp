@@ -45,3 +45,12 @@ services:
     depends_on:
       - elasticsearch
     restart: always
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./resources/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - '9090:9090'
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
